@@ -168,6 +168,52 @@ body {
     opacity: 1;
     transform: scale(1.2) rotate(5deg);
 }
+footer {
+    padding: 60px 20px;
+    background-color: #0a0a0a;
+    text-align: center;
+    border-top: 1px solid rgba(0, 255, 136, 0.1);
+}
+
+footer p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--text);
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+footer img {
+    width: 45px;
+    height: 45px;
+    margin: 0 15px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+#git:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 15px #ffffff);
+}
+
+#what:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 15px #25d366);
+}
+
+#link:hover {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 0 15px #0077b5);
+}
+
+@media (max-width: 480px) {
+    footer img {
+        width: 35px;
+        margin: 0 10px;
+    }
+}
 
 @media (max-width: 768px) {
     .inicio {

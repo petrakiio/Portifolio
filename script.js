@@ -1,4 +1,3 @@
-// Seletores centralizados
 const elements = {
     msg: document.getElementById("msg"),
     btn: document.getElementById("btn"),
@@ -74,3 +73,7 @@ function escreverResposta(texto) {
         if (i === texto.length) clearInterval(window.respostaInterval);
     }, 50);
 }
+
+//Redes Sociais
+
+const disc = document.getElementById('disc')
