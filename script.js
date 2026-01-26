@@ -80,4 +80,4 @@ elements.link.onclick = () => window.open('https://linkedin.com/in/SEU_PERFIL', 
 elements.what.onclick = () => window.open('https://wa.me/5516999999999', '_blank')
 elements.disc.onclick = () => window.open('https://discord.com/users/1325631694773944320', '_blank')
 elements.script.onclick = () => window.open('https://github.com/petrakiio/projetos-python','_blank')
-elements.script.onclick = () => window.open('https://petrakiio.github.io/WoodLab/HTML/sobre.html','_blank')
+elements.pj.onclick = () => window.open('https://petrakiio.github.io/WoodLab/index.html','_blank')
