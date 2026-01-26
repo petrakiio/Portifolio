@@ -2,7 +2,11 @@ const elements = {
     msg: document.getElementById("msg"),
     btn: document.getElementById("btn"),
     input: document.getElementById("input"),
-    sobre: document.getElementById("sobre")
+    sobre: document.getElementById("sobre"),
+    git: document.getElementById("git"),
+    what: document.getElementById("what"),
+    link: document.getElementById("link"),
+    disc: document.getElementById("disc")
 };
 
 const textos = [
@@ -18,12 +22,11 @@ let animacaoTimeout;
 
 function escreverTexto() {
     const textoAtual = textos[index];
-    
     if (!apagando) {
         elements.msg.textContent = textoAtual.slice(0, ++char);
         if (char === textoAtual.length) {
             apagando = true;
-            animacaoTimeout = setTimeout(escreverTexto, 1500); // Pausa quando termina de escrever
+            animacaoTimeout = setTimeout(escreverTexto, 1500);
             return;
         }
     } else {
@@ -33,14 +36,12 @@ function escreverTexto() {
             index = (index + 1) % textos.length;
         }
     }
-
-    const velocidade = apagando ? 50 : 100; // Apaga mais rápido do que escreve
+    const velocidade = apagando ? 50 : 100;
     animacaoTimeout = setTimeout(escreverTexto, velocidade);
 }
 
 escreverTexto();
 
-elements.btn.textContent = "Reiniciar animação";
 elements.btn.onclick = () => {
     clearTimeout(animacaoTimeout);
     elements.msg.textContent = "";
@@ -54,26 +55,25 @@ elements.input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         const nome = elements.input.value.trim();
         if (nome) {
-            escreverResposta(`Prazer, ${nome} 😄,Eu sou o Pedro,e tenho 15 anos,iniciei na prgramação em março de 2025
-                dês de então venho estudado com o foco de melhorar meus conhecimentos e entrar no mercado de trabalho`);
+            escreverResposta(nome);
             elements.input.value = "";
         }
     }
 });
 
-function escreverResposta(texto) {
+function escreverResposta(nome) {
+    const textoProfissional = `Prazer, ${nome}! Me chamo Pedro. Tenho 15 anos e iniciei minha jornada na programação em março de 2025. Desde então, dedico-me ao aprimoramento técnico contínuo com foco em Backend, buscando transformar aprendizado em soluções reais e me preparar para os desafios do mercado de tecnologia.`;
     elements.sobre.textContent = "";
     let i = 0;
-    
     if (window.respostaInterval) clearInterval(window.respostaInterval);
-
     window.respostaInterval = setInterval(() => {
-        elements.sobre.textContent += texto[i];
+        elements.sobre.textContent += textoProfissional[i];
         i++;
-        if (i === texto.length) clearInterval(window.respostaInterval);
-    }, 50);
+        if (i === textoProfissional.length) clearInterval(window.respostaInterval);
+    }, 25);
 }
 
-//Redes Sociais
-
-const disc = document.getElementById('disc')
+elements.git.onclick = () => window.open('https://github.com/SEU_USER', '_blank');
+elements.link.onclick = () => window.open('https://linkedin.com/in/SEU_PERFIL', '_blank');
+elements.what.onclick = () => window.open('https://wa.me/5516999999999', '_blank');
+elements.disc.onclick = () => window.open('https://discord.com/users/1325631694773944320', '_blank');

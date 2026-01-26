@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header class="navbar">
         <nav class="inicio">
-            <p id="msg"></p>
-            <button id="btn">Clique aqui</button> <img src="./img/icon/imagem.jpeg" alt="Foto de perfil do Pedro" class="profile-pic">
+            <div class="profile-container">
+                <p id="msg"></p>
+                <button id="btn">Reiniciar animação</button>
+            </div>
+            <img src="./img/icon/imagem.jpeg" alt="Pedro" class="profile-pic">
         </nav>
     </header>
 
@@ -37,13 +39,19 @@
             </div>
         </section>
     </main>
+
     <footer>
         <p>Minhas Redes</p>
-        <img src="./img/tec/git.webp" id="git">
-        <img src="./img/tec/whatts.png" id="what">
-        <img src="./img/tec/linkdin.svg" id="link">
-        <img src="./img/tec/discord.png" id="disc">
+        <div class="redes-container">
+            <img src="./img/tec/git.webp" id="git" alt="GitHub">
+            <img src="./img/tec/whatts.png" id="what" alt="WhatsApp">
+            <img src="./img/tec/linkdin.svg" id="link" alt="LinkedIn">
+            <img src="./img/tec/discord.png" id="disc" alt="Discord">
+        </div>
+        <button>Meus Scripts</button>
+        <button>Projeto no ar</button>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
