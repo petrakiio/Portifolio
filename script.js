@@ -44,24 +44,28 @@ function escreverTexto() {
 
 escreverTexto();
 
-elements.btn.onclick = () => {
-    clearTimeout(animacaoTimeout)
-    elements.msg.textContent = ""
-    char = 0
-    index = 0
-    apagando = false
-    escreverTexto()
-};
+if (elements.btn) {
+    elements.btn.onclick = () => {
+        clearTimeout(animacaoTimeout)
+        elements.msg.textContent = ""
+        char = 0
+        index = 0
+        apagando = false
+        escreverTexto()
+    };
+}
 
-elements.input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-        const nome = elements.input.value.trim()
-        if (nome) {
-            escreverResposta(nome);
-            elements.input.value = ""
+if (elements.input) {
+    elements.input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            const nome = elements.input.value.trim()
+            if (nome) {
+                escreverResposta(nome);
+                elements.input.value = ""
+            }
         }
-    }
-});
+    });
+}
 
 function escreverResposta(nome) {
     const textoProfissional = `Prazer, ${nome}! Me chamo Pedro. Tenho 15 anos e iniciei minha jornada na programação em março de 2025. Desde então, dedico-me ao aprimoramento técnico contínuo com foco em Backend, buscando transformar aprendizado em soluções reais e me preparar para os desafios do mercado de tecnologia.`
@@ -75,9 +79,29 @@ function escreverResposta(nome) {
     }, 25)
 }
 
-elements.git.onclick = () => window.open('https://github.com/petrakiio', '_blank')
-elements.link.onclick = () => window.open('https://linkedin.com/in/petrakiio', '_blank')
-elements.what.onclick = () => window.open('https://wa.me/5516999999999', '_blank')
-elements.disc.onclick = () => window.open('https://discord.com/users/1325631694773944320', '_blank')
-elements.script.onclick = () => window.open('https://github.com/petrakiio/projetos-python','_blank')
-elements.pj.onclick = () => window.open('https://petrakiio.github.io/WoodLab/index.html','_blank')
+if (elements.git) elements.git.onclick = () => window.open('https://github.com/petrakiio', '_blank')
+if (elements.link) elements.link.onclick = () => window.open('https://linkedin.com/in/petrakiio', '_blank')
+if (elements.what) elements.what.onclick = () => window.open('https://wa.me/5516999999999', '_blank')
+if (elements.disc) elements.disc.onclick = () => window.open('https://discord.com/users/1325631694773944320', '_blank')
+if (elements.script) elements.script.onclick = () => window.open('https://github.com/petrakiio/projetos-python','_blank')
+if (elements.pj) elements.pj.onclick = () => window.open('https://petrakiio.github.io/WoodLab/index.html','_blank')
+
+const cardsProjeto = document.querySelectorAll(".card-projeto.reveal")
+
+if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("active")
+                obs.unobserve(entry.target)
+            }
+        })
+    }, { threshold: 0.2 })
+
+    cardsProjeto.forEach((card, idx) => {
+        card.style.transitionDelay = `${idx * 0.09}s`
+        observer.observe(card)
+    })
+} else {
+    cardsProjeto.forEach((card) => card.classList.add("active"))
+}
