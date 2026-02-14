@@ -105,3 +105,54 @@ if ("IntersectionObserver" in window) {
 } else {
     cardsProjeto.forEach((card) => card.classList.add("active"))
 }
+
+const topbarLinks = document.querySelectorAll(".topbar a")
+
+topbarLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+        const targetId = link.getAttribute("href")
+        if (!targetId || !targetId.startsWith("#")) return
+
+        const target = document.querySelector(targetId)
+        if (!target) return
+
+        e.preventDefault()
+        const topbarHeight = document.querySelector(".topbar")?.offsetHeight || 0
+        const y = target.getBoundingClientRect().top + window.scrollY - topbarHeight - 12
+
+        window.scrollTo({
+            top: y,
+            behavior: "smooth"
+        })
+    })
+})
+
+const sections = ["#inicio", "#sobre-mim", "#tecnologias", "#projetos", "#contato"]
+    .map((id) => document.querySelector(id))
+    .filter(Boolean)
+
+function updateActiveTopbarLink() {
+    if (!sections.length) return
+
+    const topbarHeight = document.querySelector(".topbar")?.offsetHeight || 0
+    const marker = window.scrollY + topbarHeight + 20
+    const reachedBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+    let currentId = sections[0].id
+
+    if (reachedBottom) {
+        currentId = sections[sections.length - 1].id
+    } else {
+        sections.forEach((section) => {
+            if (section.offsetTop <= marker) currentId = section.id
+        })
+    }
+
+    topbarLinks.forEach((link) => {
+        const active = link.getAttribute("href") === `#${currentId}`
+        link.classList.toggle("active", active)
+    })
+}
+
+window.addEventListener("scroll", updateActiveTopbarLink, { passive: true })
+window.addEventListener("resize", updateActiveTopbarLink)
+updateActiveTopbarLink()

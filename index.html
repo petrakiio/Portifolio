@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="navbar">
+    <nav class="topbar">
+        <a href="#inicio">Início</a>
+        <a href="#sobre-mim">Sobre</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <header class="navbar" id="inicio">
         <nav class="inicio">
             <div class="profile-container">
                 <p id="msg"></p>
@@ -18,7 +26,7 @@
     </header>
 
     <main>
-        <section class="sobre-mim">
+        <section class="sobre-mim" id="sobre-mim">
             <h1>Sobre mim</h1>
             <div class="interacao">
                 <p>Olá! Qual seu nome?</p>
@@ -27,7 +35,7 @@
             </div>
         </section>
 
-        <section class="tec">
+        <section class="tec" id="tecnologias">
             <h2>Minhas tecnologias</h2>
             <div class="grid-tec">
                 <img src="./img/tec/python.webp" alt="Python">
@@ -73,7 +81,7 @@
             </div>
         </section>
 
-        <section class="projetos">
+        <section class="projetos" id="projetos">
             <h2>Meus projetos</h2>
             <div class="grid-projetos">
                 <article class="card-projeto reveal">
@@ -200,13 +208,36 @@
         </section>
     </main>
 
-    <footer>
-        <p>Minhas Redes</p>
-        <div class="redes-container">
-            <img src="./img/tec/git.webp" id="git" alt="GitHub">
-            <img src="./img/tec/whatts.png" id="what" alt="WhatsApp">
-            <img src="./img/tec/linkdin.svg" id="link" alt="LinkedIn">
-            <img src="./img/tec/discord.png" id="disc" alt="Discord">
+    <footer id="contato" class="contato">
+        <div class="contato-box">
+            <h2>Contato</h2>
+            <p class="contato-sub">Vamos conversar sobre projetos, ideias e oportunidades.</p>
+
+            <div class="contato-acoes">
+                <a href="https://wa.me/5516999999999" target="_blank" rel="noopener noreferrer">Chamar no WhatsApp</a>
+                <a href="https://linkedin.com/in/petrakiio" target="_blank" rel="noopener noreferrer">Conectar no LinkedIn</a>
+            </div>
+
+            <div class="redes-container">
+                <button type="button" class="social-item" id="git">
+                    <img src="./img/tec/gh.webp" alt="GitHub">
+                    <span>GitHub</span>
+                </button>
+                <button type="button" class="social-item" id="what">
+                    <img src="./img/tec/whatts.png" alt="WhatsApp">
+                    <span>WhatsApp</span>
+                </button>
+                <button type="button" class="social-item" id="link">
+                    <img src="./img/tec/linkdin.svg" alt="LinkedIn">
+                    <span>LinkedIn</span>
+                </button>
+                <button type="button" class="social-item" id="disc">
+                    <img src="./img/tec/discord.png" alt="Discord">
+                    <span>Discord</span>
+                </button>
+            </div>
+
+            <p class="contato-copy">Feito por Pedro | Back-End Developer</p>
         </div>
     </footer>
 
