@@ -217,12 +217,48 @@ body {
     margin-bottom: 40px;
 }
 
+.filtros-projetos {
+    max-width: 1100px;
+    margin: 0 auto 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filtro-btn {
+    background: transparent;
+    border: 1px solid rgba(255, 43, 58, 0.45);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.filtro-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filtro-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #0b0b0b;
+}
+
 .grid-projetos {
     max-width: 1100px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 24px;
+}
+
+.projetos-vazio {
+    max-width: 1100px;
+    margin: 16px auto 0;
+    color: #c0c0c0;
 }
 
 .card-projeto {
@@ -541,6 +577,7 @@ body {
     .inicio { flex-direction: column-reverse; text-align: center; }
     .inicio { background-attachment: scroll; }
     .profile-pic { width: min(82vw, 330px); }
+    .filtros-projetos { justify-content: center; }
     .grid-projetos { grid-template-columns: 1fr; }
     .acoes-projeto { grid-template-columns: 1fr; }
     .descricao-tec { grid-template-columns: 1fr; }
