@@ -88,6 +88,16 @@ const projetosData = [
         tags: ["frontend", "dev"],
         onlineUrl: "",
         codeUrl: "https://github.com/petrakiio/Cinetrakiio"
+    },
+    {
+        tipo: "Back-End",
+        titulo: "Gerenciador de Senhas",
+        descricao: "Gerenciador de senhas em terminal feito em Python, com salvamento local ou em banco de dados.",
+        tech: "Python • MySQL",
+        mediaClass: "card-api",
+        tags: ["backend", "publicado"],
+        onlineUrl: "",
+        codeUrl: "https://github.com/petrakiio/Pj1"
     }
 ]
 
