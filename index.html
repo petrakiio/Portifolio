@@ -18,6 +18,7 @@
     <meta name="twitter:image" content="https://petrakiio.github.io/portifolio/img/icon/imagem.jpeg">
     <link rel="icon" type="image/jpeg" href="./img/icon/imagem.jpeg">
     <link rel="preload" as="image" href="./img/icon/imagem.jpeg">
+    <script src="theme-init.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -27,7 +28,7 @@
         <a href="#tecnologias">Tecnologias</a>
         <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
-        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false">Modo claro</button>
+        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false" title="Alternar entre modo claro e escuro">Modo claro</button>
     </nav>
 
     <header class="navbar" id="inicio">
@@ -56,7 +57,7 @@
                 <img src="./img/tec/python.webp" alt="Python" width="70" height="70" loading="lazy" decoding="async">
                 <img src="./img/tec/js.png" alt="JavaScript" width="70" height="70" loading="lazy" decoding="async">
                 <img src="./img/tec/git.webp" alt="Git" width="70" height="70" loading="lazy" decoding="async">
-                <img src="./img/tec/gh.webp" alt="GitHub" width="70" height="70" loading="lazy" decoding="async">
+                <img src="./img/tec/gh-dark.webp" data-gh-light="./img/tec/gh.webp" data-gh-dark="./img/tec/gh-dark.webp" alt="GitHub" width="70" height="70" loading="lazy" decoding="async">
                 <img src="./img/tec/mysql.png" alt="MySQL" width="70" height="70" loading="lazy" decoding="async">
                 <img src="./img/tec/sql.jpg" alt="SQL" width="70" height="70" loading="lazy" decoding="async">
             </div>
@@ -122,7 +123,7 @@
 
             <div class="redes-container">
                 <button type="button" class="social-item" id="git">
-                    <img src="./img/tec/gh.webp" alt="GitHub" width="38" height="38" loading="lazy" decoding="async">
+                    <img src="./img/tec/gh.webp" data-gh-light="./img/tec/gh.webp" data-gh-dark="./img/tec/gh-dark.webp" alt="GitHub" width="38" height="38" loading="lazy" decoding="async">
                     <span>GitHub</span>
                 </button>
                 <button type="button" class="social-item" id="what">
