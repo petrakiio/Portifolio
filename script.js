@@ -1,8 +1,6 @@
 const elements = {
     msg: document.getElementById("msg"),
     btn: document.getElementById("btn"),
-    input: document.getElementById("input"),
-    sobre: document.getElementById("sobre"),
     git: document.getElementById("git"),
     what: document.getElementById("what"),
     link: document.getElementById("link"),
@@ -55,30 +53,6 @@ if (elements.btn) {
     };
 }
 
-if (elements.input) {
-    elements.input.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            const nome = elements.input.value.trim()
-            if (nome) {
-                escreverResposta(nome);
-                elements.input.value = ""
-            }
-        }
-    });
-}
-
-function escreverResposta(nome) {
-    const textoProfissional = `Prazer, ${nome}! Me chamo Pedro. Tenho 15 anos e iniciei minha jornada na programação em março de 2025. Desde então, dedico-me ao aprimoramento técnico contínuo com foco em Backend, buscando transformar aprendizado em soluções reais e me preparar para os desafios do mercado de tecnologia.`
-    elements.sobre.textContent = ""
-    let i = 0
-    if (window.respostaInterval) clearInterval(window.respostaInterval)
-    window.respostaInterval = setInterval(() => {
-        elements.sobre.textContent += textoProfissional[i]
-        i++
-        if (i === textoProfissional.length) clearInterval(window.respostaInterval)
-    }, 25)
-}
-
 if (elements.git) elements.git.onclick = () => window.open('https://github.com/petrakiio', '_blank')
 if (elements.link) elements.link.onclick = () => window.open('https://linkedin.com/in/petrakiio', '_blank')
 if (elements.what) elements.what.onclick = () => window.open('https://wa.me/5516999999999', '_blank')
@@ -87,6 +61,7 @@ if (elements.script) elements.script.onclick = () => window.open('https://github
 if (elements.pj) elements.pj.onclick = () => window.open('https://petrakiio.github.io/WoodLab/index.html','_blank')
 
 const topbarLinks = document.querySelectorAll(".topbar a")
+const backToTopBtn = document.getElementById("back-to-top")
 
 topbarLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -130,6 +105,21 @@ function updateActiveTopbarLink() {
     topbarLinks.forEach((link) => {
         const active = link.getAttribute("href") === `#${currentId}`
         link.classList.toggle("active", active)
+    })
+
+    if (backToTopBtn) {
+        const showBackToTop = currentId === "contato"
+        backToTopBtn.classList.toggle("visible", showBackToTop)
+        backToTopBtn.setAttribute("aria-hidden", String(!showBackToTop))
+    }
+}
+
+if (backToTopBtn) {
+    backToTopBtn.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        })
     })
 }
 

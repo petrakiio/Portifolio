@@ -16,7 +16,7 @@
     <meta name="twitter:title" content="Pedro | Desenvolvedor Back-End">
     <meta name="twitter:description" content="Portfólio com projetos, stack e contato.">
     <meta name="twitter:image" content="https://petrakiio.github.io/portifolio/img/icon/imagem.jpeg">
-    <link rel="icon" type="image/jpeg" href="./img/icon/imagem.jpeg">
+    <link rel="icon" type="image/webp" href="./img/tec/gh.webp">
     <link rel="preload" as="image" href="./img/icon/imagem.jpeg">
     <script src="theme-init.js"></script>
     <link rel="stylesheet" href="style.css">
@@ -33,6 +33,7 @@
         <span class="theme-icon" aria-hidden="true"></span>
         <span class="theme-label sr-only">Modo claro</span>
     </button>
+    <button type="button" id="back-to-top" class="back-to-top" aria-label="Voltar ao topo" title="Voltar ao topo" aria-hidden="true">↑</button>
 
     <header class="navbar" id="inicio">
         <nav class="inicio">
@@ -40,17 +41,38 @@
                 <p id="msg"></p>
                 <button id="btn">Reiniciar animação</button>
             </div>
-            <img src="./img/icon/imagem.jpeg" alt="Pedro" class="profile-pic" width="400" height="400" decoding="async" fetchpriority="high">
+            <div class="hero-illustration" role="img" aria-label="Ilustração de notebook com tecnologias de programação">
+                <div class="hero-circle"></div>
+
+                <div class="laptop">
+                    <div class="laptop-screen">
+                        <div class="screen-glow"></div>
+                        <p class="screen-code">API RUNNING<br>SELECT * FROM projects;<br>print("backend online")</p>
+                    </div>
+                </div>
+
+                <span class="tech-chip chip-python">Python</span>
+                <span class="tech-chip chip-js">JS</span>
+                <span class="tech-chip chip-sql">SQL</span>
+                <span class="tech-chip chip-mysql">MySQL</span>
+                <span class="tech-chip chip-git">Git</span>
+            </div>
         </nav>
     </header>
 
     <main>
         <section class="sobre-mim" id="sobre-mim">
-            <h1>Sobre mim</h1>
-            <div class="interacao">
-                <p>Olá! Qual seu nome?</p>
-                <input type="text" id="input" placeholder="Digite seu nome...">
-                <p id="sobre"></p>
+            <div class="sobre-layout">
+                <div class="sobre-conteudo">
+                    <p class="sobre-tag">print('hello word') 👋</p>
+                    <h1 class="sobre-titulo">Eu sou Pedro,</h1>
+                    <p class="sobre-subtitulo">Desenvolvedor Back-End em formação.</p>
+                    <p class="sobre-texto">Tenho 15 anos e iniciei minha jornada na programação em março de 2025. Desde então, estudo diariamente com foco em Python, SQL e desenvolvimento web, buscando transformar aprendizado em projetos reais e evoluir para o mercado de tecnologia.</p>
+                    <a class="sobre-cta" href="#contato">Fala comigo</a>
+                </div>
+                <div class="sobre-foto-wrap">
+                    <img src="./img/icon/imagem.jpeg" alt="Foto de Pedro" class="sobre-foto" width="420" height="420" loading="lazy" decoding="async">
+                </div>
             </div>
         </section>
 
