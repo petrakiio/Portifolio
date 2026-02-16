@@ -62,6 +62,47 @@ if (elements.pj) elements.pj.onclick = () => window.open('https://petrakiio.gith
 
 const topbarLinks = document.querySelectorAll(".topbar a")
 const backToTopBtn = document.getElementById("back-to-top")
+const gridCertificacoes = document.getElementById("grid-certificacoes")
+
+const certificacoesData = [
+    {
+        tag: "Certificação concluída",
+        titulo: "Certificação Python",
+        descricao: "Certificado focado em fundamentos, lógica, estruturas de dados e construção de soluções em Python.",
+        downloadUrl: "./cert/comprovante_inscricao.pdf",
+        downloadLabel: "Baixar cópia do certificado",
+        busca: false
+    },
+    {
+        tag: "Próximo passo",
+        titulo: "Em busca de mais certificações",
+        descricao: "Atualmente estudando para ampliar conhecimento em Back-End, banco de dados e desenvolvimento de APIs.",
+        downloadUrl: "",
+        downloadLabel: "",
+        busca: true
+    }
+]
+
+function renderCertificacaoCard(certificacao) {
+    const buscaClass = certificacao.busca ? " card-certificacao-busca" : ""
+    const download = certificacao.downloadUrl
+        ? `<a class="cert-download" href="${certificacao.downloadUrl}" download>${certificacao.downloadLabel}</a>`
+        : ""
+
+    return `
+        <article class="card-certificacao${buscaClass}">
+            <p class="cert-tag">${certificacao.tag}</p>
+            <h3>${certificacao.titulo}</h3>
+            <p>${certificacao.descricao}</p>
+            ${download}
+        </article>
+    `
+}
+
+function renderCertificacoes() {
+    if (!gridCertificacoes) return
+    gridCertificacoes.innerHTML = certificacoesData.map(renderCertificacaoCard).join("")
+}
 
 topbarLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
@@ -82,7 +123,7 @@ topbarLinks.forEach((link) => {
     })
 })
 
-const sections = ["#inicio", "#sobre-mim", "#tecnologias", "#projetos", "#contato"]
+const sections = ["#inicio", "#sobre-mim", "#tecnologias", "#certificacoes", "#projetos", "#contato"]
     .map((id) => document.querySelector(id))
     .filter(Boolean)
 
@@ -122,6 +163,8 @@ if (backToTopBtn) {
         })
     })
 }
+
+renderCertificacoes()
 
 window.addEventListener("scroll", updateActiveTopbarLink, { passive: true })
 window.addEventListener("resize", updateActiveTopbarLink)
