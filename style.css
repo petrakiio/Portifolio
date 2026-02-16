@@ -4,6 +4,20 @@
     --bg-dark: #060b14;
     --bg-card: #13101a;
     --text: #e9f3ff;
+    --muted-text: #cfcfcf;
+    --input-bg: #252525;
+    --input-border: #333;
+    --input-text: #fff;
+    --topbar-bg: rgba(10, 10, 10, 0.92);
+    --topbar-border: rgba(255, 43, 58, 0.22);
+    --card-surface: #131313;
+    --card-border: rgba(255, 43, 58, 0.2);
+    --contact-bg: #0a0a0a;
+    --contact-box-bg: rgba(18, 18, 18, 0.88);
+    --social-bg: #121212;
+    --social-border: rgba(255, 255, 255, 0.12);
+    --social-text: #e4e4e4;
+    --copy-text: #a9a9a9;
     --transition: 0.3s ease-in-out;
 }
 
@@ -19,6 +33,7 @@ body {
     color: var(--text);
     overflow-x: hidden;
     scroll-behavior: auto;
+    transition: background-color var(--transition), color var(--transition);
 }
 
 .topbar {
@@ -31,8 +46,8 @@ body {
     justify-content: center;
     gap: 10px;
     padding: 14px 16px;
-    background: rgba(10, 10, 10, 0.92);
-    border-bottom: 1px solid rgba(255, 43, 58, 0.22);
+    background: var(--topbar-bg);
+    border-bottom: 1px solid var(--topbar-border);
     backdrop-filter: blur(8px);
 }
 
@@ -76,6 +91,23 @@ body {
 
 .topbar a.active::after {
     transform: scaleX(1);
+}
+
+.theme-toggle {
+    margin-left: 8px;
+    background: transparent;
+    border: 1px solid rgba(255, 43, 58, 0.45);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 .navbar {
@@ -182,10 +214,10 @@ body {
     padding: 15px;
     width: 100%;
     max-width: 400px;
-    background: #252525;
-    border: 1px solid #333;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
     border-radius: 8px;
-    color: #fff;
+    color: var(--input-text);
     font-size: 1rem;
     transition: var(--transition);
 }
@@ -258,12 +290,12 @@ body {
 .projetos-vazio {
     max-width: 1100px;
     margin: 16px auto 0;
-    color: #c0c0c0;
+    color: var(--muted-text);
 }
 
 .card-projeto {
-    background: #131313;
-    border: 1px solid rgba(255, 43, 58, 0.2);
+    background: var(--card-surface);
+    border: 1px solid var(--card-border);
     border-radius: 14px;
     display: flex;
     flex-direction: column;
@@ -346,7 +378,7 @@ body {
 }
 
 .projeto-desc {
-    color: #c9c9c9;
+    color: var(--muted-text);
     line-height: 1.5;
     padding: 0 20px;
 }
@@ -433,8 +465,8 @@ body {
 }
 
 .coluna-tec {
-    background: #131313;
-    border: 1px solid rgba(255, 43, 58, 0.2);
+    background: var(--card-surface);
+    border: 1px solid var(--card-border);
     border-radius: 14px;
     padding: 20px;
 }
@@ -460,7 +492,7 @@ body {
 }
 
 .item-tec p {
-    color: #cfcfcf;
+    color: var(--muted-text);
     line-height: 1.5;
     font-size: 0.95rem;
 }
@@ -469,7 +501,7 @@ body {
     padding: 90px 20px;
     background:
         radial-gradient(circle at top left, rgba(255, 43, 58, 0.14), transparent 30%),
-        #0a0a0a;
+        var(--contact-bg);
     border-top: 1px solid rgba(255, 43, 58, 0.12);
 }
 
@@ -479,7 +511,7 @@ body {
     padding: 32px;
     border-radius: 18px;
     border: 1px solid rgba(255, 43, 58, 0.22);
-    background: rgba(18, 18, 18, 0.88);
+    background: var(--contact-box-bg);
     text-align: center;
 }
 
@@ -490,7 +522,7 @@ body {
 }
 
 .contato-sub {
-    color: #cfcfcf;
+    color: var(--muted-text);
     max-width: 620px;
     margin: 0 auto;
 }
@@ -526,11 +558,11 @@ body {
 }
 
 .social-item {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    background: #121212;
+    border: 1px solid var(--social-border);
+    background: var(--social-bg);
     border-radius: 12px;
     padding: 14px;
-    color: #e4e4e4;
+    color: var(--social-text);
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -557,8 +589,44 @@ body {
 
 .contato-copy {
     margin-top: 22px;
-    color: #a9a9a9;
+    color: var(--copy-text);
     font-size: 0.9rem;
+}
+
+[data-theme="light"] {
+    --bg-dark: #f4f7fb;
+    --bg-card: #ffffff;
+    --text: #101726;
+    --muted-text: #3f4a5f;
+    --input-bg: #f6f8fc;
+    --input-border: #d4deea;
+    --input-text: #101726;
+    --topbar-bg: rgba(255, 255, 255, 0.9);
+    --topbar-border: rgba(255, 43, 58, 0.28);
+    --card-surface: #ffffff;
+    --card-border: rgba(16, 23, 38, 0.1);
+    --contact-bg: #f1f5fb;
+    --contact-box-bg: rgba(255, 255, 255, 0.92);
+    --social-bg: #ffffff;
+    --social-border: rgba(16, 23, 38, 0.14);
+    --social-text: #101726;
+    --copy-text: #4a566b;
+}
+
+[data-theme="light"] .inicio {
+    background: linear-gradient(120deg, rgba(244, 247, 251, 0.92), rgba(238, 242, 250, 0.86), rgba(234, 239, 248, 0.72)),
+                url('https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+[data-theme="light"] .projetos {
+    background: radial-gradient(circle at top right, rgba(255, 43, 58, 0.1), transparent 40%), var(--bg-card);
+}
+
+[data-theme="light"] .item-tec {
+    border-bottom: 1px solid rgba(16, 23, 38, 0.1);
 }
 
 .grid-tec img:hover {
