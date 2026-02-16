@@ -28,8 +28,11 @@
         <a href="#tecnologias">Tecnologias</a>
         <a href="#projetos">Projetos</a>
         <a href="#contato">Contato</a>
-        <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false" title="Alternar entre modo claro e escuro">Modo claro</button>
     </nav>
+    <button type="button" id="theme-toggle" class="theme-toggle" aria-label="Alternar tema" aria-pressed="false" title="Alternar entre modo claro e escuro">
+        <span class="theme-icon" aria-hidden="true"></span>
+        <span class="theme-label sr-only">Modo claro</span>
+    </button>
 
     <header class="navbar" id="inicio">
         <nav class="inicio">
@@ -54,12 +57,24 @@
         <section class="tec" id="tecnologias">
             <h2>Minhas tecnologias</h2>
             <div class="grid-tec">
-                <img src="./img/tec/python.webp" alt="Python" width="70" height="70" loading="lazy" decoding="async">
-                <img src="./img/tec/js.png" alt="JavaScript" width="70" height="70" loading="lazy" decoding="async">
-                <img src="./img/tec/git.webp" alt="Git" width="70" height="70" loading="lazy" decoding="async">
-                <img src="./img/tec/gh-dark.webp" data-gh-light="./img/tec/gh.webp" data-gh-dark="./img/tec/gh-dark.webp" alt="GitHub" width="70" height="70" loading="lazy" decoding="async">
-                <img src="./img/tec/mysql.png" alt="MySQL" width="70" height="70" loading="lazy" decoding="async">
-                <img src="./img/tec/sql.jpg" alt="SQL" width="70" height="70" loading="lazy" decoding="async">
+                <a class="tec-link" href="https://www.python.org/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site do Python">
+                    <img src="./img/tec/python.webp" alt="Python" width="70" height="70" loading="lazy" decoding="async">
+                </a>
+                <a class="tec-link" href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" aria-label="Abrir documentação de JavaScript">
+                    <img src="./img/tec/js.png" alt="JavaScript" width="70" height="70" loading="lazy" decoding="async">
+                </a>
+                <a class="tec-link" href="https://git-scm.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site do Git">
+                    <img src="./img/tec/git.webp" alt="Git" width="70" height="70" loading="lazy" decoding="async">
+                </a>
+                <a class="tec-link" href="https://github.com/petrakiio" target="_blank" rel="noopener noreferrer" aria-label="Abrir perfil no GitHub">
+                    <img src="./img/tec/gh-dark.webp" data-gh-light="./img/tec/gh.webp" data-gh-dark="./img/tec/gh-dark.webp" alt="GitHub" width="70" height="70" loading="lazy" decoding="async">
+                </a>
+                <a class="tec-link" href="https://www.mysql.com/" target="_blank" rel="noopener noreferrer" aria-label="Abrir site do MySQL">
+                    <img src="./img/tec/mysql.png" alt="MySQL" width="70" height="70" loading="lazy" decoding="async">
+                </a>
+                <a class="tec-link" href="https://www.w3schools.com/sql/" target="_blank" rel="noopener noreferrer" aria-label="Abrir referência de SQL">
+                    <img src="./img/tec/sql.jpg" alt="SQL" width="70" height="70" loading="lazy" decoding="async">
+                </a>
             </div>
 
             <div class="descricao-tec">

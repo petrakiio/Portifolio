@@ -1,6 +1,7 @@
 const THEME_KEY = "portfolio-theme";
 const root = document.documentElement;
 const themeToggle = document.getElementById("theme-toggle");
+const themeLabel = themeToggle ? themeToggle.querySelector(".theme-label") : null;
 const themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
 function getSavedTheme() {
@@ -28,8 +29,16 @@ function setTheme(theme) {
     });
 
     if (themeToggle) {
-        themeToggle.textContent = isLight ? "Modo escuro" : "Modo claro";
+        const nextActionLabel = isLight ? "Alternar para modo escuro" : "Alternar para modo claro";
+        if (themeLabel) {
+            themeLabel.textContent = isLight ? "Modo escuro" : "Modo claro";
+        } else {
+            themeToggle.textContent = isLight ? "Modo escuro" : "Modo claro";
+        }
         themeToggle.setAttribute("aria-pressed", String(isLight));
+        themeToggle.setAttribute("data-mode", isLight ? "light" : "dark");
+        themeToggle.setAttribute("aria-label", nextActionLabel);
+        themeToggle.setAttribute("title", nextActionLabel);
     }
 
     if (themeColorMeta) {
