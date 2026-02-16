@@ -32,7 +32,7 @@ body {
     background-color: var(--bg-dark);
     color: var(--text);
     overflow-x: hidden;
-    scroll-behavior: auto;
+    scroll-behavior: smooth;
     transition: background-color var(--transition), color var(--transition);
 }
 
@@ -1003,6 +1003,10 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    html,
+    body {
+        scroll-behavior: auto;
+    }
     .reveal,
     .reveal.active {
         opacity: 1;
