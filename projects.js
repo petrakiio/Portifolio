@@ -104,6 +104,93 @@ const projetosData = [
 const gridProjetos = document.getElementById("grid-projetos")
 const projetosVazio = document.getElementById("projetos-vazio")
 const filtroBtns = document.querySelectorAll(".filtro-btn")
+const githubRepoStats = new Map()
+let currentFilter = "todos"
+
+function getGithubRepoPath(url) {
+    if (!url) return null
+
+    try {
+        const parsed = new URL(url)
+        if (!parsed.hostname.includes("github.com")) return null
+
+        const parts = parsed.pathname.split("/").filter(Boolean)
+        if (parts.length < 2) return null
+        return `${parts[0]}/${parts[1]}`
+    } catch (_) {
+        return null
+    }
+}
+
+function formatDate(dateIso) {
+    if (!dateIso) return null
+    const date = new Date(dateIso)
+    if (Number.isNaN(date.getTime())) return null
+
+    return new Intl.DateTimeFormat("pt-BR", {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric"
+    }).format(date)
+}
+
+function renderGithubInfo(projeto) {
+    const repoPath = projeto.githubRepo || getGithubRepoPath(projeto.codeUrl)
+    if (!repoPath) {
+        return `<p class="projeto-github projeto-github-muted">GitHub: repositório não informado</p>`
+    }
+
+    const stats = githubRepoStats.get(repoPath)
+
+    if (!stats) {
+        return `<p class="projeto-github projeto-github-loading">GitHub: carregando dados...</p>`
+    }
+
+    if (stats.error) {
+        return `<p class="projeto-github projeto-github-muted">GitHub: dados indisponíveis</p>`
+    }
+
+    const parts = []
+    parts.push(`★ ${new Intl.NumberFormat("pt-BR").format(stats.stars || 0)}`)
+
+    if (stats.language) parts.push(stats.language)
+
+    const updatedAt = formatDate(stats.updatedAt)
+    if (updatedAt) parts.push(`Atualizado em ${updatedAt}`)
+
+    return `<p class="projeto-github">${parts.join(" • ")}</p>`
+}
+
+async function carregarGithubStats() {
+    const repos = [...new Set(
+        projetosData
+            .map((projeto) => projeto.githubRepo || getGithubRepoPath(projeto.codeUrl))
+            .filter(Boolean)
+    )]
+
+    if (!repos.length) return
+
+    await Promise.all(repos.map(async (repoPath) => {
+        try {
+            const response = await fetch(`https://api.github.com/repos/${repoPath}`, {
+                headers: { Accept: "application/vnd.github+json" }
+            })
+
+            if (!response.ok) throw new Error(`GitHub API ${response.status}`)
+            const data = await response.json()
+
+            githubRepoStats.set(repoPath, {
+                stars: data.stargazers_count,
+                language: data.language,
+                updatedAt: data.pushed_at
+            })
+        } catch (_) {
+            githubRepoStats.set(repoPath, { error: true })
+        }
+    }))
+
+    renderProjetos(currentFilter)
+}
 
 function renderProjetoCard(projeto) {
     const isDev = projeto.tags.includes("dev")
@@ -127,6 +214,7 @@ function renderProjetoCard(projeto) {
             </div>
             <h3>${projeto.titulo}</h3>
             <p class="projeto-desc">${projeto.descricao}</p>
+            ${renderGithubInfo(projeto)}
             <p class="projeto-tech">${projeto.tech}</p>
             <div class="acoes-projeto">
                 ${onlineAcao}
@@ -160,6 +248,7 @@ function setupProjectReveal() {
 
 function renderProjetos(filter = "todos") {
     if (!gridProjetos) return
+    currentFilter = filter
 
     const projetosFiltrados = projetosData.filter((projeto) => {
         if (filter === "todos") return true
@@ -184,3 +273,4 @@ filtroBtns.forEach((btn) => {
 })
 
 renderProjetos()
+carregarGithubStats()
