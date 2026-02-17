@@ -9,6 +9,26 @@ const elements = {
     pj: document.getElementById("pj")
 };
 
+const siteLoader = document.getElementById("site-loader")
+const loaderSkipBtn = document.getElementById("loader-skip")
+let loaderClosed = false
+
+function closeSiteLoader() {
+    if (!siteLoader || loaderClosed) return
+    loaderClosed = true
+    siteLoader.classList.add("is-hidden")
+    document.body.classList.remove("is-loading")
+}
+
+if (siteLoader) {
+    setTimeout(closeSiteLoader, 2100)
+    window.addEventListener("load", () => setTimeout(closeSiteLoader, 350), { once: true })
+}
+
+if (loaderSkipBtn) {
+    loaderSkipBtn.addEventListener("click", closeSiteLoader)
+}
+
 const textos = [
     "Dev Back-End 💻",
     "Estudante 🎓",

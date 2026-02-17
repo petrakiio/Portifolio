@@ -36,6 +36,96 @@ body {
     transition: background-color var(--transition), color var(--transition);
 }
 
+body.is-loading {
+    overflow: hidden;
+}
+
+.site-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255, 43, 58, 0.24), transparent 45%),
+        radial-gradient(circle at 80% 80%, rgba(255, 122, 138, 0.2), transparent 48%),
+        #050810;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.site-loader.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-content {
+    width: min(92vw, 450px);
+    border: 1px solid rgba(255, 43, 58, 0.3);
+    border-radius: 16px;
+    background: rgba(7, 10, 16, 0.86);
+    box-shadow: 0 14px 42px rgba(0, 0, 0, 0.42);
+    padding: 30px 24px;
+    text-align: center;
+    animation: loaderFadeIn 0.55s ease-out both;
+}
+
+.loader-brand {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-weight: 800;
+    color: var(--primary);
+    letter-spacing: 0.4px;
+    text-shadow: 0 0 18px rgba(255, 43, 58, 0.35);
+}
+
+.loader-text {
+    margin-top: 8px;
+    color: var(--muted-text);
+    font-size: 0.98rem;
+}
+
+.loader-bar {
+    margin-top: 18px;
+    width: 100%;
+    height: 8px;
+    border-radius: 999px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.loader-bar span {
+    display: block;
+    width: 0%;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--secondary), var(--primary));
+    animation: loaderProgress 1.9s ease forwards;
+}
+
+.loader-skip {
+    margin-top: 16px;
+    border: 1px solid rgba(255, 43, 58, 0.45);
+    background: transparent;
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+
+.loader-skip:hover {
+    color: #080808;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.loader-skip:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
 .topbar {
     position: fixed;
     top: 0;
@@ -227,6 +317,22 @@ body {
 @keyframes sunSpin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
+}
+
+@keyframes loaderFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes loaderProgress {
+    from { width: 0%; }
+    to { width: 100%; }
 }
 
 .navbar {
@@ -1100,7 +1206,9 @@ body {
     .sobre-cta,
     .sobre-cta::after,
     .laptop,
-    .tech-chip {
+    .tech-chip,
+    .loader-content,
+    .loader-bar span {
         animation: none;
     }
 }
