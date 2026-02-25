@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aviso</title>
+    <meta name="theme-color" content="#0f0f0f">
+    <script src="./js/theme-init.js"></script>
     <link rel="stylesheet" href="aviso.css">
 </head>
 <body>
@@ -17,8 +19,17 @@
 
         <section class="aviso aviso-warning">
             <h2>Como rodar localmente</h2>
-            <p>Para visualizar o projeto no seu computador, clone o repositório e abra o arquivo <code>index.html</code>.</p>
+            <p>Para visualizar o projeto no seu computador, clone o repositório e siga as instruções do <code>README.md</code>.</p>
         </section>
+
+        <a class="btn-voltar" href="./index.html">Voltar ao portfólio</a>
     </main>
+
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Alternar tema" aria-pressed="false">
+        <span class="theme-icon" aria-hidden="true"></span>
+        <span class="sr-only theme-label">Modo claro</span>
+    </button>
+
+    <script src="./js/modes.js"></script>
 </body>
 </html>

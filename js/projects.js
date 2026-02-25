@@ -75,8 +75,8 @@ const projetosData = [
         descricao: "CRUD baseado em operações de lanchonete com administração visual.",
         tech: "Python • MySQL • Flask",
         mediaClass: "card-api",
-        tags: ["backend", "dev","publicado"],
-        onlineUrl: "",
+        tags: ["backend","publicado"],
+        onlineUrl: "./aviso.html",
         codeUrl: "https://github.com/petrakiio/APIs"
     },
     {
