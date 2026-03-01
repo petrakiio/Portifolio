@@ -98,6 +98,15 @@ const projetosData = [
         tags: ["backend", "publicado"],
         onlineUrl: "",
         codeUrl: "https://github.com/petrakiio/Pj1"
+    },
+    {
+        tipo:"Fron-End",
+        titulo:"Landing Page",
+        descricao:"Landing Page feita pra cliente",
+        tech:"HTML • CSS • JavaScript",
+        mediaClass:"card-dashboard",
+        tags:["frontend", "publicado"],
+        onlineUrl:"https://bolos-ale.onrender.com/"
     }
 ]
 
