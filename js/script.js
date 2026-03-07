@@ -94,6 +94,11 @@ const certificacoesData = [
         busca: false
     },
     {
+        tag:"Certificação concluída",
+        titulo:"Certificação HashTag",
+        descricao:"",
+    },
+    {
         tag: "Próximo passo",
         titulo: "Em busca de mais certificações",
         descricao: "Atualmente estudando para ampliar conhecimento em Back-End, banco de dados e desenvolvimento de APIs.",
