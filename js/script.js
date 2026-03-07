@@ -96,7 +96,10 @@ const certificacoesData = [
     {
         tag:"Certificação concluída",
         titulo:"Certificação HashTag",
-        descricao:"",
+        descricao:"Certificado de presença em 4 aulas(intensivas) com 4 projetos incluindo analise de dados com pandas,IA e automação ",
+        downloadUrl:"./cert/Validação_Certificado.pdf",
+        downloadLabel:"Baixar cópia de certificado",
+        busca:false
     },
     {
         tag: "Próximo passo",
