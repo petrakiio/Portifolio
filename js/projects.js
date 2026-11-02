@@ -1,6 +1,16 @@
 const projetosData = [
     {
         tipo: "Projeto Web",
+        titulo: "VG Mangueira Hidraulicas e Baterias",
+        descricao: "Site de empresa de mangueiras hidráulicas e baterias, com foco em apresentação visual e navegação clara para clientes.",
+        tech: "HTML • CSS • JavaScript",
+        mediaClass: "card-vg",
+        tags: ["frontend", "publicado"],
+        onlineUrl: "https://vgmangueiras.onrender.com",
+        codeUrl: ""
+    },
+    {
+        tipo: "Projeto Web",
         titulo: "WoodLab",
         descricao: "Site de marcenaria moderna com foco em apresentação visual e navegação clara para clientes.",
         tech: "HTML • CSS • JavaScript",
